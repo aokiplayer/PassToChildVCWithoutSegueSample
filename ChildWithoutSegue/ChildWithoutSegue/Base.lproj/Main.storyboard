@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ChildWithoutSegue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zub-52-Aed">
+                                <rect key="frame" x="87" y="402" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Wz6-GC-OMm"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="xvd-Fy-QTC"/>
+                                </constraints>
+                                <state key="normal" title="SHOW WORD"/>
+                                <connections>
+                                    <action selector="showButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QRs-Jt-jVr"/>
+                                </connections>
+                            </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rXl-X6-QDy">
+                                <rect key="frame" x="24" y="174" width="327" height="128"/>
+                                <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="iIw-jh-6PB"/>
+                                </constraints>
+                            </containerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z2I-rv-e8s">
+                                <rect key="frame" x="24" y="350" width="327" height="29"/>
+                                <segments>
+                                    <segment title="Hello"/>
+                                    <segment title="Bye"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rXl-X6-QDy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="Abi-qr-U6d"/>
+                            <constraint firstItem="zub-52-Aed" firstAttribute="top" secondItem="z2I-rv-e8s" secondAttribute="bottom" constant="24" id="Fyt-V0-PkW"/>
+                            <constraint firstItem="z2I-rv-e8s" firstAttribute="top" secondItem="rXl-X6-QDy" secondAttribute="bottom" constant="48" id="G7g-cY-RUD"/>
+                            <constraint firstItem="rXl-X6-QDy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-96" id="JDN-mh-a8x"/>
+                            <constraint firstItem="zub-52-Aed" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lsx-Uh-WK9"/>
+                            <constraint firstItem="z2I-rv-e8s" firstAttribute="trailing" secondItem="rXl-X6-QDy" secondAttribute="trailing" id="cae-9J-ZF0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rXl-X6-QDy" secondAttribute="trailing" constant="24" id="l74-w3-VJA"/>
+                            <constraint firstItem="z2I-rv-e8s" firstAttribute="leading" secondItem="rXl-X6-QDy" secondAttribute="leading" id="zhO-Wt-KWZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="container" destination="rXl-X6-QDy" id="70g-VI-HfY"/>
+                        <outlet property="segment" destination="z2I-rv-e8s" id="pAT-zi-pvg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="239" y="-23"/>
+        </scene>
+        <!--Child View Controller-->
+        <scene sceneID="Tni-EZ-bUn">
+            <objects>
+                <viewController storyboardIdentifier="childVC" id="Mdh-41-Ked" customClass="ChildViewController" customModule="ChildWithoutSegue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Cy-bh-J55">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="selected word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZx-83-gaS">
+                                <rect key="frame" x="32" y="319" width="311" height="29"/>
+                                <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="hZx-83-gaS" firstAttribute="centerY" secondItem="6Cy-bh-J55" secondAttribute="centerY" id="NtV-Jr-l2c"/>
+                            <constraint firstItem="yhi-Qh-me8" firstAttribute="trailing" secondItem="hZx-83-gaS" secondAttribute="trailing" constant="32" id="b9n-uE-vg0"/>
+                            <constraint firstItem="hZx-83-gaS" firstAttribute="leading" secondItem="yhi-Qh-me8" secondAttribute="leading" constant="32" id="zhf-HR-uFX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yhi-Qh-me8"/>
+                    </view>
+                    <connections>
+                        <outlet property="wordLabel" destination="hZx-83-gaS" id="JWJ-9W-LSa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R1n-Yg-lMY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="958" y="-23"/>
+        </scene>
+    </scenes>
+</document>
