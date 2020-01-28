@@ -6,7 +6,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var segment: UISegmentedControl!
 
     @IBAction func showButtonTapped(_ sender: UIButton) {
-        guard let childVC = childViewControllers.first as? ChildViewController else { return }
+        guard let childVC = children.first as? ChildViewController else { return }
 
         childVC.word = segment.titleForSegment(at: segment.selectedSegmentIndex)
     }
@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         guard let childVC = sb.instantiateViewController(withIdentifier: "childVC") as? ChildViewController else { return }
 
-        addChildViewController(childVC)
+        addChild(childVC)
         childVC.view.frame = container.bounds
         container.addSubview(childVC.view)
     }
